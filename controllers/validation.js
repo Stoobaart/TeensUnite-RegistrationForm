@@ -11,13 +11,13 @@ function validation(req, res) {
 
   validateAddress(req.body.postCode)
     .then(function(isValidated) {
-      console.log(isValidated);
+      //console.log(isValidated);
       validatedAddress = isValidated;
   });
 
-  console.log("validatedSpam", validatedSpam);
-  console.log("validatedDOB", validatedDOB);
-  console.log("validatedAddress", validatedAddress);
+  // console.log("validatedSpam", validatedSpam);
+  // console.log("validatedDOB", validatedDOB);
+  // console.log("validatedAddress", validatedAddress);
 
   // Ensure the form matches the requirements to be taken seriously
   if(validatedSpam && validatedDOB && validatedAddress) {
@@ -57,7 +57,7 @@ function validateAddress(postcode) {
   // Send request
   return rpromise(addressRequest)
     .then(function(response) {
-      console.log(response.statusCode);
+      //console.log(response.statusCode);
       if(response.statusCode === 200) return true;
     })
     .catch(function(error) {
