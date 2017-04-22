@@ -1,0 +1,19 @@
+{
+  "name": "teensunite-registration-form",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stoobaart/TeensUnite-RegistrationForm.git"
+  },
+  "author": "Stu, Tom and Chris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stoobaart/TeensUnite-RegistrationForm/issues"
+  },
+  "homepage": "https://github.com/Stoobaart/TeensUnite-RegistrationForm#readme"
+}
