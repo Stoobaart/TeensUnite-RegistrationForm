@@ -4,11 +4,23 @@ var sendmail = require('sendmail')({
 });
 
 function validation(req, res) {
+  var validatedSpam = spamFilter(req.body);
   var validatedDOB = validateDOB(req.body.dateOfBirth);
-  var validatedAddress = validateAddress(req.body.postCode);
-  validated = true;
-  console.log("Validated", validated);
-  if(validatedDOB && validatedAddress) {
+
+  var validatedAddress = true;
+
+  validateAddress(req.body.postCode)
+    .then(function(isValidated) {
+      //console.log(isValidated);
+      validatedAddress = isValidated;
+  });
+
+  // console.log("validatedSpam", validatedSpam);
+  // console.log("validatedDOB", validatedDOB);
+  // console.log("validatedAddress", validatedAddress);
+
+  // Ensure the form matches the requirements to be taken seriously
+  if(validatedSpam && validatedDOB && validatedAddress) {
     // Send email
     sendEmail(req.body);
   }
@@ -33,7 +45,7 @@ function validateDOB(date) {
 // Validates the forms address to ensure it is valid and within the UK
 function validateAddress(postcode) {
   // Ensure postcode matches UK postcode format
-  if(!postcode.match(/(GIR 0AA)|((([ABCDEFGHIJKLMNOPRSTUWYZ][0-9][0-9]?)|(([ABCDEFGHIJKLMNOPRSTUWYZ][ABCDEFGHKLMNOPQRSTUVWXY][0-9][0-9]?)|(([ABCDEFGHIJKLMNOPRSTUWYZ][0-9][ABCDEFGHJKSTUW])|([ABCDEFGHIJKLMNOPRSTUWYZ][ABCDEFGHKLMNOPQRSTUVWXY][0-9][ABEHMNPRVWXY])))) [0-9][ABDEFGHJLNPQRSTUWXYZ]{2})/g
+  if(!postcode.toUpperCase().match(/(GIR 0AA)|((([ABCDEFGHIJKLMNOPRSTUWYZ][0-9][0-9]?)|(([ABCDEFGHIJKLMNOPRSTUWYZ][ABCDEFGHKLMNOPQRSTUVWXY][0-9][0-9]?)|(([ABCDEFGHIJKLMNOPRSTUWYZ][0-9][ABCDEFGHJKSTUW])|([ABCDEFGHIJKLMNOPRSTUWYZ][ABCDEFGHKLMNOPQRSTUVWXY][0-9][ABEHMNPRVWXY])))) [0-9][ABDEFGHJLNPQRSTUWXYZ]{2})/g
 )) return false;
 
   // Set request to send to the getAddress API
@@ -42,29 +54,28 @@ function validateAddress(postcode) {
     json: true,
     resolveWithFullResponse: true
   };
-
   // Send request
-  rpromise(addressRequest)
-        .then(function(response) {
-          if(response.statusCode !== 404 && response.statusCode !== 400) return true;
-          return false;
-        })
-        .catch(function(error) {
-          return false;
-        });
+  return rpromise(addressRequest)
+    .then(function(response) {
+      //console.log(response.statusCode);
+      if(response.statusCode === 200) return true;
+    })
+    .catch(function(error) {
+      //console.log(error);
+      return false;
+    });
 }
 
 // Send the email to the relevant party
 function sendEmail(formData) {
-
   // The email data that will be sent
   sendmail({
-    from: formData.email,
+    from: formData.realEmail,
     to: 'chrisjtsoi.work@gmail.com',
     subject: 'Teen Sign Up Submission',
     html: "First Name:" + formData.firstName +
     "<br> Last Name:" + formData.lastName +
-    "<br> Email:" + formData.email +
+    "<br> Email:" + formData.realEmail +
     "<br> Date of Birth:" + formData.dateOfBirth +
     "<br> Gender:" + formData.gender +
     "<br> Address:" + formData.address +
@@ -86,6 +97,11 @@ function sendEmail(formData) {
   });
 
   return true;
+}
+
+function spamFilter(formData) {
+  if(formData.email === '' && formData.contact === '') return true;
+  else return false;
 }
 
 module.exports = {

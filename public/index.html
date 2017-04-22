@@ -13,16 +13,19 @@
 
 		<div class="introBox">
 			<h5>Teens Sign Up<h5>
+
 			<ul class="introText">	
 					<li> * Are you/is the person you are referring aged 13-24?</li>
 					<li> * Do you/does the person you are referring have cancer or another life-limiting illness?</li>
 			</ul>
 			<p class="introText">Becoming a member of Teens Unite is easy! Simply fill in the form below. As soon as we receive your form we will send you out a membership pack and start inviting you to our days :)</p>
 
-			<p class="introText">Fields marked with a * are required</p>
+			<p class="introText"> Fields marked with a <span class="red-text">*</span> are required</p>
+
 		</div>
 
 	<section class="formContainer">
+
 		<p> Fields marked with a <span class="red-text">*</span> are required</p>
 		<form name="registrationForm" action="/validate" method="post" onsubmit="return validateForm()">
       <div>
@@ -35,13 +38,13 @@
 				<input required type="text" id="lastName" name="lastName">
 			</div>
 			<!-- HoneyPot ** Fake email inputs -->
-			<div class="input-field">
+			<div class="contact-field">
 			  Please leave this blank
 			  <input type="text" name="contact" value="" />
 			</div>
 			<div class="text-field">
 			  Please do not change this field
-			  <input type="text" name="email" value="your@email.com" />
+			  <input type="text" name="email" value="" />
 			</div>
 			<!-- *** -->
 
