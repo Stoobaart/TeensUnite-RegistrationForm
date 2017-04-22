@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 
-// Make public components available
+// Make public components available to use
 app.use(express.static('public'));
 
 // Body parser for json data
