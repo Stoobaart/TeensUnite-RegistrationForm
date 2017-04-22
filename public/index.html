@@ -23,16 +23,17 @@
 		</div>
 
 	<section class="formContainer">
-	<p> Fields marked with a <span class="red-text">*</span> are required</p>
+		<p> Fields marked with a <span class="red-text">*</span> are required</p>
 		<form name="registrationForm" action="/validate" method="post" onsubmit="return validateForm()">
-        
+      <div>
+				<label for="firstName">First Name<span class="red-text">*</span></label>
+				<input required type="text" id="firstName" name="firstName" class="tooltipped" data-position="right" data-delay="50" data-tooltip="I am tooltip">	
+			</div>
 
-			<input required type="text" id="firstName" name="firstName" class="tooltipped" data-position="right" data-delay="50" data-tooltip="I am tooltip">	
-			<label for="firstName">First Name<span class="red-text">*</span></label>	
-
-			<input required type="text" id="lastName" name="lastName">
-			<label for="lastName">Last Name<span class="red-text"> *</span></label>
-
+			<div>
+				<label for="lastName">Last Name<span class="red-text"> *</span></label>
+				<input required type="text" id="lastName" name="lastName">
+			</div>
 			<!-- HoneyPot ** Fake email inputs -->
 			<div class="input-field">
 			  Please leave this blank
@@ -44,66 +45,98 @@
 			</div>
 			<!-- *** -->
 
-			<input required type="email" id="email" name="realEmail">
-			<label for="email">Email<span class="red-text"> *</span></label>
-
-			<input required type="date" id="dateOfBirth" name="dateOfBirth">
-			<label for="dateOfBirth">Date of Birth<span class="red-text"> *</span></label>
-
-		   	<div class="input-field col s12">
-			    <select required id="gender" name="gender">
-			    	<option value="" disabled selected>Select Gender<span class="red-text"> *</span></option>
-			      <option class="non" value="male">Male</option>
-			      <option class="non" value="female">Female</option>
-			      <option value="noAnswer">prefer not to say</option>
-			      <option class="editable" value="other">Other</option>
-			    </select>
-			    <input id="gender" class="editOption" value="Please specify" style="display:none;"></input>		    
+			<div>
+				<label for="email">Email<span class="red-text"> *</span></label>
+				<input required type="email" id="email" name="realEmail">
 			</div>
 
-			<input required type="text" id="address" name="address">
-			<label for="address">Address<span class="red-text"> *</span></label>
+			<div>
+				<label for="dateOfBirth">Date of Birth<span class="red-text"> *</span></label>
+				<input required type="date" id="dateOfBirth" name="dateOfBirth">
+			</div>
 
-			<input required type="text" id="postCode" name="postCode">
-			<label for="postCode">Post Code<span class="red-text"> *</span></label>
+	   	<div class="input-field col s12">
+		    <select required id="gender" name="gender">
+		    	<option value="" disabled selected>Select Gender<span class="red-text"> *</span></option>
+		      <option class="non" value="male">Male</option>
+		      <option class="non" value="female">Female</option>
+		      <option value="noAnswer">prefer not to say</option>
+		      <option class="editable" value="other">Other</option>
+		    </select>
+		    <input id="gender" class="editOption" value="Please specify" style="display:none;"></input>		    
+			</div>
 
-			<input type="number" id="homeTel" name="homeTel">
-			<label for="homeTel">Home Telephone</label>
+			<div>
+				<label for="address">Address<span class="red-text"> *</span></label>
+				<input required type="text" id="address" name="address">
+			</div>
 
-			<input required type="text" id="mobileTel" name="mobileTel" pattern="^(?:\W*\d){11}\W*$" title="Please enter a valid UK mobile number.">
-			<label for="mobileTel">Mobile Telephone<span class="red-text"> *</span></label>
+			<div>
+				<label for="postCode">Post Code<span class="red-text"> *</span></label>
+				<input required type="text" id="postCode" name="postCode">
+			</div>
+			
+			<div>
+				<label for="homeTel">Home Telephone</label>
+				<input type="number" id="homeTel" name="homeTel">
+			</div>
+			
+			<div>
+				<label for="mobileTel">Mobile Telephone<span class="red-text"> *</span></label>
+				<input required type="text" id="mobileTel" name="mobileTel" pattern="^(?:\W*\d){11}\W*$" title="Please enter a valid UK mobile number.">
+			</div>
 
-			<input type="text" id="parentCarerName" name="parentCarerName" pattern="^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$" title="Name entered in an incorrect format.">
-			<label for="parentCarerName">Parent/Carer Name: </label>
+			<div>
+				<label for="parentCarerName">Parent/Carer Name: </label>
+				<input type="text" id="parentCarerName" name="parentCarerName" pattern="^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$" title="Name entered in an incorrect format.">
+			</div>
+			
+			<div>
+				<label for="parentCarerTel">Parent/Carer Telephone: </label>
+				<input type="number" id="parentCarerTel" name="parentCarerTel pattern="^(?:\W*\d){11}\W*$" title="Please enter a valid UK mobile number.">
+			</div>
 
-			<input type="number" id="parentCarerTel" name="parentCarerTel pattern="^(?:\W*\d){11}\W*$" title="Please enter a valid UK mobile number.">
-			<label for="parentCarerTel">Parent/Carer Telephone: </label>
+			<div>
+				<label for="parentCarerEmail">Parent/Carer Email: </label>
+				<input type="email" title="Please enter a valid email address." id="parentCarerEmail" name="parentCarerEmail">
+			</div>
 
-			<input type="email" title="Please enter a valid email address." id="parentCarerEmail" name="parentCarerEmail">
-			<label for="parentCarerEmail">Parent/Carer Email: </label>
+			<div>
+				<label for="medicalCondition">Medical Condition(s)<span class="red-text"> *</span></label>
+				<input required type="text" id="medicalCondition" name="medicalCondition">
+			</div>
+			
+			<div>
+				<label for="hospitalAttendedsPostCode">Hospital Attended's Postcode<span class="red-text"> *</span></label>
+				<input required type="text" id="hospitalAttendedsPostCode" name="hospitalAttendedsPostCode">
+			</div>
+			
+			<div>
+				<label for="specialRequirements">Special Requirements<span class="red-text"> *</span></label>
+				<textarea required type="text" name="specialRequirements"></textarea>
+				<p id="helpText">*If none, enter 'None'</p>
+			</div>
 
-			<input required type="text" id="medicalCondition" name="medicalCondition">
-			<label for="medicalCondition">Medical Condition(s)<span class="red-text"> *</span></label>
+			<div>
+				<label for="socialWorker">Social Worker: </label>
+				<input type="text" id="socialWorker" name="socialWorker">
+			</div>
+			
+			<div>
+				<label for="howFind">How did you hear about us?: </label>
+				<input type="text" id="howFind" name="howFind">
+			</div>
+			
+			<div>
+				<label for="interests">Interests: </label>
+				<textarea type="text" name="interests"></textarea>
+			</div>
 
-			<input required type="text" id="hospitalAttendedsPostCode" name="hospitalAttendedsPostCode">
-			<label for="hospitalAttendedsPostCode">Hospital Attended's Postcode<span class="red-text"> *</span></label>
-
-			<textarea required type="text" name="specialRequirements"></textarea>
-			<label for="specialRequirements">Special Requirements<span class="red-text"> *</span></label>
-			<p id="helpText">*If none, enter 'None'</p>
-
-			<input type="text" id="socialWorker" name="socialWorker">
-			<label for="socialWorker">Social Worker: </label>
-
-			<input type="text" id="howFind" name="howFind">
-			<label for="howFind">How did you hear about us?: </label>
-
-			<textarea type="text" name="interests"></textarea>
-			<label for="interests">Interests: </label>
-
-			<textarea required type="text" name="photoRelease"></textarea>
-			<label for="photoRelease">Photo Release?<span class="red-text"> *</span></label>
-
+			<div>
+				<label for="photoRelease">Photo Release?<span class="red-text"> *</span></label>
+				<textarea required type="text" name="photoRelease"></textarea>
+			</div>
+		
 			<input class="btn" type="submit" name="Submit" value="Submit">
 		</form>
 	</section> <!-- form container END-->
