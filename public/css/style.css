@@ -1,3 +1,14 @@
+html {
+	font-size: 12;
+	font-family: "helvetica neue", "comic sans"
+}
+label, p {
+	color: #4d4d4d;
+}
+#helpText {
+	font-size: 10 !important;
+	font-style: italic;
+}
 .formContainer {
 	width: 50rem;
 	margin: auto;
@@ -8,3 +19,5 @@
 .input-field.col label {
 	left: 0;
 }
+/* HoneyPot ** Hide 1st fake email input */
+.input-field { display: none; }

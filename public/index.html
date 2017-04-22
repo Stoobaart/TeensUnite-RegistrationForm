@@ -20,25 +20,36 @@
 			<label for="lastName">Last Name<span class="red-text"> *</span></label>
 			<input required type="text" name="lastName">
 
+			<!-- HoneyPot ** Fake email inputs -->
+			<div class="input-field">
+			  Please leave this blank
+			  <input type="text" name="contact" value="" />
+			</div>
+			<div class="text-field">
+			  Please do not change this field
+			  <input type="text" name="email" value="your@email.com" />
+			</div>
+			<!-- *** -->
+
 			<label for="email">Email<span class="red-text"> *</span></label>
 			<input required type="email" name="email">
 
 			<label for="dateOfBirth">Date of Birth<span class="red-text"> *</span></label>
 			<input required type="date" name="dateOfBirth">
 
-	   	<div class="input-field col s12">
-		    <select required id="gender" name="gender">
-		    	<option value="" disabled selected>Select Gender</option>
-		      <option class="non" value="male">Male</option>
-		      <option class="non" value="female">Female</option>
-		      <option value="noAnswer">prefer not to say</option>
-		      <option class="editable" value="other">Other</option>
-		    </select>
-		    <label for="gender">Gender<span class="red-text"> *</span></label>
-		    <input class="editOption" value="Please specify" style="display:none;"></input>		    
+	   		<div class="input-field col s12">
+			    <select required id="gender" name="gender">
+			    	<option value="" disabled selected>Select Gender</option>
+			      <option class="non" value="male">Male</option>
+			      <option class="non" value="female">Female</option>
+			      <option value="noAnswer">prefer not to say</option>
+			      <option class="editable" value="other">Other</option>
+			    </select>
+			    <label for="gender">Gender<span class="red-text"> *</span></label>
+			    <input class="editOption" value="Please specify" style="display:none;"></input>		    
 			</div>
 
-	  	<label for="address">Address<span class="red-text"> *</span></label>
+	  		<label for="address">Address<span class="red-text"> *</span></label>
 			<input required type="text" name="address">
 
 			<label for="postCode">Post Code<span class="red-text"> *</span></label>
@@ -68,7 +79,7 @@
 			</div>
 
 			<label for="specialRequirements">Special Requirements<span class="red-text"> *</span></label>
-			<p class="grey-text">(if none, enter n/a)</p>
+			<p id="helpText">*If none, enter 'None'</p>
 			<textarea required type="text" name="specialRequirements"></textarea>
 
 			<label for="socialWorker">Social Worker: </label>
