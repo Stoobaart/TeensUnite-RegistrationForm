@@ -1,3 +1,8 @@
+.introText {
+	font-size: 1rem;
+}
+
+
 .formContainer {
 	width: 50rem;
 	margin: auto;
@@ -11,4 +16,13 @@
 
 input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
 	margin-bottom: 0rem;
+}
+
+input.btn {
+	float: right;
+}
+
+.introBox {
+	width: 50rem;
+	margin: auto;
 }
