@@ -26,7 +26,6 @@
 	<p> Fields marked with a <span class="red-text">*</span> are required</p>
 		<form name="registrationForm" action="/validate" method="post" onsubmit="return validateForm()">
 
-
 			<input required type="text" id="firstName" name="firstName" class="tooltipped" data-position="right" data-delay="50" data-tooltip="I am tooltip">
 			<label for="firstName">First Name<span class="red-text">*</span></label>
 
@@ -40,11 +39,11 @@
 			</div>
 			<div class="text-field">
 			  Please do not change this field
-			  <input type="text" name="email" value="your@email.com" />
+			  <input type="text" name="email" value="" />
 			</div>
 			<!-- *** -->
 
-			<input required type="email" id="email" name="realEmail">
+			<input required type="email" id="realEmail" name="realEmail">
 			<label for="email">Email<span class="red-text"> *</span></label>
 
 			<input required type="date" id="dateOfBirth" name="dateOfBirth">
