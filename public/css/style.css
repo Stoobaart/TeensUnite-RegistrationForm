@@ -1,3 +1,5 @@
-h1 {
-	color: red;
+.formContainer {
+	width: 50rem;
+	margin: auto;
+	margin-top: 2rem;
 }

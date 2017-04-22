@@ -1,7 +1,9 @@
 function validateForm() {
-  var firstName = $("#firstName").val();
-  console.log(firstName);
-  alert("connected");
+  // var firstName = $("#firstName").val();
+  // console.log(firstName);
+  // if (firstName == "") {
+    
+  // }
 }
 
 $(document).ready(function() {
