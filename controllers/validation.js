@@ -1,3 +1,5 @@
+var rpromise = require('request-promise');
+
 function validation(req, res) {
   validateAddress();
 
@@ -18,7 +20,18 @@ function validateMobile() {
 }
 
 function validateAddress() {
+  var addressRequest = {
+    uri: 'https://api.getAddress.io/v2/uk/' + postcode + '?api-key=' + process.env.API_KEY_GETADDRESS ,
+    json: true
+  };
 
+  rpromise(addressRequest)
+        .then(function(response) {
+
+        })
+        .catch(function(error) {
+
+        });
 }
 
 module.exports = {
