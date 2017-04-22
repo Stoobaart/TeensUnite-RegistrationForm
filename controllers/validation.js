@@ -4,6 +4,7 @@ var sendmail = require('sendmail')({
 });
 
 function validation(req, res) {
+  var validatedSpam = validatedSpam(req.body);
   var validatedDOB = validateDOB(req.body.dateOfBirth);
 
   var validatedAddress = false;
@@ -14,11 +15,12 @@ function validation(req, res) {
       validatedAddress = isValidated;
   });
 
+  console.log("validatedSpam", validatedSpam);
   console.log("validatedDOB", validatedDOB);
   console.log("validatedAddress", validatedAddress);
 
   // Ensure the form matches the requirements to be taken seriously
-  if(validatedDOB && validatedAddress) {
+  if(validatedSpam && validatedDOB && validatedAddress) {
     // Send email
     sendEmail(req.body);
   }
@@ -95,6 +97,11 @@ function sendEmail(formData) {
   });
 
   return true;
+}
+
+function spamFilter(formData) {
+  if(formData.email === '' && formData.contact === '') return true;
+  else return false;
 }
 
 module.exports = {
