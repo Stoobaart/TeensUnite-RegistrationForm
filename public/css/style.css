@@ -25,7 +25,7 @@ label, p {
 }
 
 /* HoneyPot ** Hide 1st fake email input */
-.input-field { 
+.contact-field { 
 	display: none;
 }
 
