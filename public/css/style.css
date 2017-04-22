@@ -8,3 +8,12 @@
 .input-field.col label {
 	left: 0;
 }
+
+/*#firstName:focus, #lastName:focus, #email:focus, #dateOfBirth:focus, #gender:focus, #address: focus, #postCode:focus, #homeTel:focus, #mobileTel:focus, #parentCarerName:focus, #parentCarerTel:focus, #parentCarerEmail:focus, #medicalCondition:focus, #hospitalAttendedsPostCode:focus, #socialWorker:focus, #howFind:focus{
+  border-bottom: 1px solid black;
+  box-shadow: 0 1px 0 0 black;
+}*/
+
+input {
+	margin-bottom: 0rem;
+}
