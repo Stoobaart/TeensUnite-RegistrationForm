@@ -1,11 +1,12 @@
 var rpromise = require('request-promise');
 
 function validation(req, res) {
-  validateAddress();
+  var validated = validateAddress();
 
   if(validated) {
     // Send email
   }
+  
   res.status(200).json({
     message: "Thank you for your application"
   });
@@ -21,6 +22,7 @@ function validateMobile() {
 
 // Validates the forms address to ensure it is valid and within the UK
 function validateAddress(postcode) {
+  // Ensure postcode matches UK postcode format
   if(!postcode.match(/(GIR 0AA)|((([ABCDEFGHIJKLMNOPRSTUWYZ][0-9][0-9]?)|(([ABCDEFGHIJKLMNOPRSTUWYZ][ABCDEFGHKLMNOPQRSTUVWXY][0-9][0-9]?)|(([ABCDEFGHIJKLMNOPRSTUWYZ][0-9][ABCDEFGHJKSTUW])|([ABCDEFGHIJKLMNOPRSTUWYZ][ABCDEFGHKLMNOPQRSTUVWXY][0-9][ABEHMNPRVWXY])))) [0-9][ABDEFGHJLNPQRSTUWXYZ]{2})/
 )) return false;
 
@@ -37,9 +39,7 @@ function validateAddress(postcode) {
           return false;
         })
         .catch(function(error) {
-          return res.status(500).json({
-              error: error.message
-          });
+          return false;
         });
 }
 
