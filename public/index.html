@@ -13,7 +13,7 @@
 
 		<div class="introBox">
 			<h5>Teens Sign Up<h5>
-			<ul class="introText">	
+			<ul class="introText">
 					<li>Are you/is the person you are referring aged 13-24?</li>
 					<li>Do you/does the person you are referring have cancer or another life-limiting illness?</li>
 			</ul>
@@ -25,10 +25,10 @@
 	<section class="formContainer">
 	<p> Fields marked with a <span class="red-text">*</span> are required</p>
 		<form name="registrationForm" action="/validate" method="post" onsubmit="return validateForm()">
-        
 
-			<input required type="text" id="firstName" name="firstName" class="tooltipped" data-position="right" data-delay="50" data-tooltip="I am tooltip">	
-			<label for="firstName">First Name<span class="red-text">*</span></label>	
+
+			<input required type="text" id="firstName" name="firstName" class="tooltipped" data-position="right" data-delay="50" data-tooltip="I am tooltip">
+			<label for="firstName">First Name<span class="red-text">*</span></label>
 
 			<input required type="text" id="lastName" name="lastName">
 			<label for="lastName">Last Name<span class="red-text"> *</span></label>
@@ -58,7 +58,7 @@
 			      <option value="noAnswer">prefer not to say</option>
 			      <option class="editable" value="other">Other</option>
 			    </select>
-			    <input id="gender" class="editOption" value="Please specify" style="display:none;"></input>		    
+			    <input id="gender" class="editOption" value="Please specify" style="display:none;"></input>
 			</div>
 
 			<input required type="text" id="address" name="address">
@@ -76,7 +76,7 @@
 			<input type="text" id="parentCarerName" name="parentCarerName" pattern="^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$" title="Name entered in an incorrect format.">
 			<label for="parentCarerName">Parent/Carer Name: </label>
 
-			<input type="number" id="parentCarerTel" name="parentCarerTel pattern="^(?:\W*\d){11}\W*$" title="Please enter a valid UK mobile number.">
+			<input type="number" id="parentCarerTel" name="parentCarerTel" pattern="^(?:\W*\d){11}\W*$" title="Please enter a valid UK mobile number.">
 			<label for="parentCarerTel">Parent/Carer Telephone: </label>
 
 			<input type="email" title="Please enter a valid email address." id="parentCarerEmail" name="parentCarerEmail">

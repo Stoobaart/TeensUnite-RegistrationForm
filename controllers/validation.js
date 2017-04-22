@@ -4,10 +4,10 @@ var sendmail = require('sendmail')({
 });
 
 function validation(req, res) {
-  var validatedSpam = validatedSpam(req.body);
+  var validatedSpam = spamFilter(req.body);
   var validatedDOB = validateDOB(req.body.dateOfBirth);
 
-  var validatedAddress = false;
+  var validatedAddress = true;
 
   validateAddress(req.body.postCode)
     .then(function(isValidated) {
@@ -45,7 +45,7 @@ function validateDOB(date) {
 // Validates the forms address to ensure it is valid and within the UK
 function validateAddress(postcode) {
   // Ensure postcode matches UK postcode format
-  if(!postcode.match(/(GIR 0AA)|((([ABCDEFGHIJKLMNOPRSTUWYZ][0-9][0-9]?)|(([ABCDEFGHIJKLMNOPRSTUWYZ][ABCDEFGHKLMNOPQRSTUVWXY][0-9][0-9]?)|(([ABCDEFGHIJKLMNOPRSTUWYZ][0-9][ABCDEFGHJKSTUW])|([ABCDEFGHIJKLMNOPRSTUWYZ][ABCDEFGHKLMNOPQRSTUVWXY][0-9][ABEHMNPRVWXY])))) [0-9][ABDEFGHJLNPQRSTUWXYZ]{2})/g
+  if(!postcode.toUpperCase().match(/(GIR 0AA)|((([ABCDEFGHIJKLMNOPRSTUWYZ][0-9][0-9]?)|(([ABCDEFGHIJKLMNOPRSTUWYZ][ABCDEFGHKLMNOPQRSTUVWXY][0-9][0-9]?)|(([ABCDEFGHIJKLMNOPRSTUWYZ][0-9][ABCDEFGHJKSTUW])|([ABCDEFGHIJKLMNOPRSTUWYZ][ABCDEFGHKLMNOPQRSTUVWXY][0-9][ABEHMNPRVWXY])))) [0-9][ABDEFGHJLNPQRSTUWXYZ]{2})/g
 )) return false;
 
   // Set request to send to the getAddress API
@@ -61,7 +61,7 @@ function validateAddress(postcode) {
       if(response.statusCode === 200) return true;
     })
     .catch(function(error) {
-      console.log(error);
+      //console.log(error);
       return false;
     });
 }
@@ -70,12 +70,12 @@ function validateAddress(postcode) {
 function sendEmail(formData) {
   // The email data that will be sent
   sendmail({
-    from: formData.email,
+    from: formData.realEmail,
     to: 'chrisjtsoi.work@gmail.com',
     subject: 'Teen Sign Up Submission',
     html: "First Name:" + formData.firstName +
     "<br> Last Name:" + formData.lastName +
-    "<br> Email:" + formData.email +
+    "<br> Email:" + formData.realEmail +
     "<br> Date of Birth:" + formData.dateOfBirth +
     "<br> Gender:" + formData.gender +
     "<br> Address:" + formData.address +
