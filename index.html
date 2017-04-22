@@ -2,10 +2,79 @@
 <html>
 <head>
 	<title>IG-registration-form</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/javascript.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	
+	<form>
+		<label for="firstName">First Name: </label>
+		<input type="text" name="firstName">		
+
+		<label for="lastName">Last Name: </label>
+		<input type="text" name="lastName">
+
+		<label for="email">Email: </label>
+		<input type="text" name="email">
+
+		<label for="dateOfBirth">Date of Birth: </label>
+		<input type="text" name="dateOfBirth">
+
+		<label for="gender">Gender</label>
+		<select name="gender">
+    		<option value="male">Male</option>
+    		<option value="female">Female</option>
+    	</select>
+
+    	<label for="address">Address: </label>
+		<input type="text" name="address">
+
+		<label for="postCode">Post Code: </label>
+		<input type="text" name="postCode">
+
+		<label for="homeTel">Home Telephone: </label>
+		<input type="number" name="homeTel">
+
+		<label for="mobileTel">Mobile Telephone: </label>
+		<input type="number" name="mobileTel">
+
+		<label for="parentCarerName">Parent/Carer Name: </label>
+		<input type="text" name="parentCarerName">
+
+		<label for="parentCarerTel">Parent/Carer Telephone: </label>
+		<input type="number" name="parentCarerTel">
+
+		<label for="parentCarerEmail">Parent/Carer Email: </label>
+		<input type="text" name="parentCarerEmail">
+
+		<label for="medicalCondition">Medical Condition: </label>
+		<input type="text" name="medicalCondition">
+
+		<div class="hospitalAttendedsPostCodeArea">
+			<label for="hospitalAttendedsPostCode">Hospital Attended's Postcode: </label>
+			<input type="text" name="hospitalAttendedsPostCode">
+		</div>
+
+		<button class="AddHospitalAttended">Add Another</button>
+
+		<label for="specialRequirements">Special Requirements: </label>
+		<input type="text" name="specialRequirements">
+
+		<label for="socialWorker">Social Worker: </label>
+		<input type="text" name="socialWorker">
+
+		<label for="howFind">How did you hear about us?: </label>
+		<input type="text" name="howFind">
+
+		<label for="interests">Interests: </label>
+		<textarea type="text" name="interests"></textarea>
+
+		<label for="photoRelease">Photo Release?: </label>
+		<textarea type="text" name="photoRelease"></textarea>
+
+		<button type="submit">Submit</button>
+
+
+	</form>
 </body>
 </html>
