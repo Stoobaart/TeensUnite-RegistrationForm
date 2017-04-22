@@ -1,12 +1,16 @@
 var rpromise = require('request-promise');
+var sendmail = require('sendmail')({
+  silent: true
+});
 
 function validation(req, res) {
-  console.log(req.body.postCode);
-  var validated = validateAddress(req.body.postCode);
-
+  var validatedDOB = validateDOB(req.body.dateOfBirth);
+  var validatedAddress = validateAddress(req.body.postCode);
+  validated = true;
   console.log("Validated", validated);
-  if(validated) {
+  if(validatedDOB && validatedAddress) {
     // Send email
+    sendEmail(req.body);
   }
 
   res.status(200).json({
@@ -14,12 +18,16 @@ function validation(req, res) {
   });
 }
 
-function validateDOB() {
+// Validates the forms date of birth to ensure the user is eligible
+function validateDOB(date) {
+  var birthDate = new Date(date);
+  var currentDate = new Date();
+  var diff = currentDate - birthDate;
+  var age = Math.floor(diff / (1000*60*60*24*365.25));
 
-}
-
-function validateMobile() {
-
+  // Verify the user is within the required age range
+  if(13 < age < 24) return true;
+  else return false;
 }
 
 // Validates the forms address to ensure it is valid and within the UK
@@ -38,13 +46,46 @@ function validateAddress(postcode) {
   // Send request
   rpromise(addressRequest)
         .then(function(response) {
-          console.log(response);
-          if(response.statusCode !== 404 && response.statusCode!== 400) return true;
+          if(response.statusCode !== 404 && response.statusCode !== 400) return true;
           return false;
         })
         .catch(function(error) {
           return false;
         });
+}
+
+// Send the email to the relevant party
+function sendEmail(formData) {
+
+  // The email data that will be sent
+  sendmail({
+    from: formData.email,
+    to: 'chrisjtsoi.work@gmail.com',
+    subject: 'Teen Sign Up Submission',
+    html: "First Name:" + formData.firstName +
+    "<br> Last Name:" + formData.lastName +
+    "<br> Email:" + formData.email +
+    "<br> Date of Birth:" + formData.dateOfBirth +
+    "<br> Gender:" + formData.gender +
+    "<br> Address:" + formData.address +
+    "<br> Post Code:" + formData.postCode +
+    "<br> Home Telephone:" + formData.homeTel +
+    "<br> Mobile Telephone:" + formData.phoneTel +
+    "<br> Parent/Carer Name:" + formData.parentCarerName +
+    "<br> Parent/Carer Telephone:" + formData.parentCarerTel +
+    "<br> Parent/Carer Email:" + formData.parentCarerEmail +
+    "<br> Medical Condition:" + formData.medicalCondition +
+    "<br> Hospitals Attended:" + formData.hospitalAttendedsPostCode +
+    "<br> Special Requirements:" + formData.specialRequirements +
+    "<br> Social Worker:" + formData.socialWorker +
+    "<br> How Did You Head About Us:" + formData.howFind +
+    "<br> Interests:" + formData.interests +
+    "<br> Photo Release?:" + formData.photoRelease
+  }, function(error, reply) {
+    if(error) return false;
+  });
+
+  return true;
 }
 
 module.exports = {

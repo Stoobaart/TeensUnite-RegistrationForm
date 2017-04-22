@@ -26,13 +26,17 @@
 			<label for="dateOfBirth">Date of Birth<span class="red-text"> *</span></label>
 			<input required type="date" name="dateOfBirth">
 
-			<label for="gender">Gender<span class="red-text"> *</span></label>
-			<select required name="gender">
-	  		<option value="male">Male</option>
-	  		<option value="female">Female</option>
-	  		<option value="female">Other</option>
-	  		<option value="female">Prefer not to say</option>
-	  	</select>
+	   	<div class="input-field col s12">
+		    <select required id="gender" name="gender">
+		    	<option value="" disabled selected>Select Gender</option>
+		      <option class="non" value="male">Male</option>
+		      <option class="non" value="female">Female</option>
+		      <option value="noAnswer">prefer not to say</option>
+		      <option class="editable" value="other">Other</option>
+		    </select>
+		    <label for="gender">Gender<span class="red-text"> *</span></label>
+		    <input class="editOption" value="Please specify" style="display:none;"></input>		    
+			</div>
 
 	  	<label for="address">Address<span class="red-text"> *</span></label>
 			<input required type="text" name="address">
@@ -57,7 +61,7 @@
 
 			<label for="medicalCondition">Medical Condition(s)<span class="red-text"> *</span></label>
 			<input required type="text" name="medicalCondition">
-
+			
 			<div class="hospitalAttendedsPostCodeArea">
 				<label for="hospitalAttendedsPostCode">Hospital Attended's Postcode<span class="red-text"> *</span></label>
 				<input required type="text" name="hospitalAttendedsPostCode">
