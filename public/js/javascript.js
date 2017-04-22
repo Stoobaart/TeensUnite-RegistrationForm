@@ -6,13 +6,13 @@ function validateForm() {
   // }
 }
 
-// form option tooltips initialisation  
-$(document).ready(function(){
-    $('.tooltipped').tooltip({delay: 50});
-  });
-
 $(document).ready(function() {
+  // materialize intializers
+  $('.tooltipped').tooltip({delay: 50});
   $('select').material_select();
+
+  // HoneyPot ** Hide 2nd fake email field **
+  $('.text-field').hide();
 
   var max_fields      = 3; //maximum input boxes allowed
   var wrapper         = $(".hospitalAttendedsPostCodeArea"); //Fields wrapper
@@ -30,8 +30,6 @@ $(document).ready(function() {
   $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
     e.preventDefault(); $(this).parent('div').remove(); x--;
   });
-
-
 
   var initialText = "Please specify";
   $('.editOption').val(initialText);
