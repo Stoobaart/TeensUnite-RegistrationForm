@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>IG-registration-form</title>
+	<title>TeensUnite-registration-form</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/javascript.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<form>
+	<form name="registrationForm" action="/validate" method="post" onsubmit="validateForm()">
 		<label for="firstName">First Name: </label>
-		<input type="text" name="firstName">
+		<input type="text" id="#firstName" name="firstName">		
 
 		<label for="lastName">Last Name: </label>
 		<input type="text" name="lastName">
@@ -72,7 +72,7 @@
 		<label for="photoRelease">Photo Release?: </label>
 		<textarea type="text" name="photoRelease"></textarea>
 
-		<button type="submit">Submit</button>
+		<input type="submit" name="Submit" value="Submit">
 
 
 	</form>
