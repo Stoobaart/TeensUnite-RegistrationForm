@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Stoobaart/TeensUnite-RegistrationForm/issues"
   },
-  "homepage": "https://github.com/Stoobaart/TeensUnite-RegistrationForm#readme"
+  "homepage": "https://github.com/Stoobaart/TeensUnite-RegistrationForm#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }

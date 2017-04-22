@@ -11,10 +11,4 @@ app.use(bodyParser.json());
 // Body parser
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/api", routes);
-
-app.get('/', function(req, res){
-  res.render('index.html.ejs');
-});
-
 module.exports = app;
