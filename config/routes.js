@@ -11,3 +11,5 @@ router.route('/')
 // Validate the form data to ensure the user is a valid candidate
 router.route('/validate')
     .post(validationController.validate);
+
+module.exports = router;

@@ -1,6 +1,6 @@
 // Show the web page
 function index(req, res) {
-  res.render('../index.html');
+  res.sendFile(__dirname + '/index.html');
 }
 
 module.exports = {
