@@ -4,11 +4,11 @@ var sendmail = require('sendmail')({
 });
 
 function validation(req, res) {
-  console.log(req.body.postCode);
-  var validated = validateAddress(req.body.postCode);
-validated = true;
+  var validatedDOB = validateDOB(req.body.dateOfBirth);
+  var validatedAddress = validateAddress(req.body.postCode);
+  validated = true;
   console.log("Validated", validated);
-  if(validated) {
+  if(validatedDOB && validatedAddress) {
     // Send email
     sendEmail(req.body);
   }
@@ -18,8 +18,16 @@ validated = true;
   });
 }
 
-function validateDOB() {
+// Validates the forms date of birth to ensure the user is eligible
+function validateDOB(date) {
+  var birthDate = new Date(date);
+  var currentDate = new Date();
+  var diff = currentDate - birthDate;
+  var age = Math.floor(diff / (1000*60*60*24*365.25));
 
+  // Verify the user is within the required age range
+  if(13 < age < 24) return true;
+  else return false;
 }
 
 // Validates the forms address to ensure it is valid and within the UK
@@ -38,7 +46,6 @@ function validateAddress(postcode) {
   // Send request
   rpromise(addressRequest)
         .then(function(response) {
-          console.log(response);
           if(response.statusCode !== 404 && response.statusCode !== 400) return true;
           return false;
         })
@@ -50,6 +57,7 @@ function validateAddress(postcode) {
 // Send the email to the relevant party
 function sendEmail(formData) {
 
+  // The email data that will be sent
   sendmail({
     from: formData.email,
     to: 'chrisjtsoi.work@gmail.com',
