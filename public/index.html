@@ -9,16 +9,16 @@
 <body>
 	<form>
 		<label for="firstName">First Name: </label>
-		<input type="text" name="firstName">
+		<input 8type="text" name="firstName">
 
 		<label for="lastName">Last Name: </label>
 		<input type="text" name="lastName">
 
 		<label for="email">Email: </label>
-		<input type="text" name="email">
+		<input type="email" name="email">
 
 		<label for="dateOfBirth">Date of Birth: </label>
-		<input type="text" name="dateOfBirth">
+		<input type="date" name="dateOfBirth">
 
 		<label for="gender">Gender</label>
 		<select name="gender">
@@ -36,16 +36,16 @@
 		<input type="number" name="homeTel">
 
 		<label for="mobileTel">Mobile Telephone: </label>
-		<input type="number" name="mobileTel" pattern="^(?:\W*\d){11}\W*$">
+		<input type="text" name="mobileTel" pattern="^(?:\W*\d){11}\W*$" title="Please enter a valid UK mobile number.">
 
 		<label for="parentCarerName">Parent/Carer Name: </label>
-		<input type="text" name="parentCarerName" pattern="^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$">
+		<input type="text" name="parentCarerName" pattern="^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$" title="Name entered in an incorrect format.">
 
 		<label for="parentCarerTel">Parent/Carer Telephone: </label>
 		<input type="number" name="parentCarerTel">
 
 		<label for="parentCarerEmail">Parent/Carer Email: </label>
-		<input type="text" name="parentCarerEmail">
+		<input type="email" name="parentCarerEmail">
 
 		<label for="medicalCondition">Medical Condition: </label>
 		<input type="text" name="medicalCondition">
@@ -58,13 +58,13 @@
 		<button class="AddHospitalAttended">Add Another</button>
 
 		<label for="specialRequirements">Special Requirements: </label>
-		<input type="text" name="specialRequirements">
+		<textarea type="text" name="specialRequirements"></textarea>
 
 		<label for="socialWorker">Social Worker: </label>
 		<input type="text" name="socialWorker">
 
 		<label for="howFind">How did you hear about us?: </label>
-		<input type="text" name="howFind">
+		<textarea type="text" name="howFind"></textarea>
 
 		<label for="interests">Interests: </label>
 		<textarea type="text" name="interests"></textarea>
