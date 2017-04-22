@@ -41,10 +41,10 @@
 			<input type="number" name="homeTel">
 
 			<label for="mobileTel">Mobile Telephone: </label>
-			<input type="number" name="mobileTel">
+			<input type="number" name="mobileTel" pattern="^(?:\W*\d){11}\W*$">
 
 			<label for="parentCarerName">Parent/Carer Name: </label>
-			<input type="text" name="parentCarerName">
+			<input type="text" name="parentCarerName" pattern="^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$">
 
 			<label for="parentCarerTel">Parent/Carer Telephone: </label>
 			<input type="number" name="parentCarerTel">
