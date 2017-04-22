@@ -5,9 +5,19 @@ var sendmail = require('sendmail')({
 
 function validation(req, res) {
   var validatedDOB = validateDOB(req.body.dateOfBirth);
-  var validatedAddress = validateAddress(req.body.postCode);
-  validated = true;
-  console.log("Validated", validated);
+
+  var validatedAddress = false;
+
+  validateAddress(req.body.postCode)
+    .then(function(isValidated) {
+      console.log(isValidated);
+      validatedAddress = isValidated;
+  });
+
+  console.log("validatedDOB", validatedDOB);
+  console.log("validatedAddress", validatedAddress);
+
+  // Ensure the form matches the requirements to be taken seriously
   if(validatedDOB && validatedAddress) {
     // Send email
     sendEmail(req.body);
@@ -42,21 +52,20 @@ function validateAddress(postcode) {
     json: true,
     resolveWithFullResponse: true
   };
-
   // Send request
-  rpromise(addressRequest)
-        .then(function(response) {
-          if(response.statusCode !== 404 && response.statusCode !== 400) return true;
-          return false;
-        })
-        .catch(function(error) {
-          return false;
-        });
+  return rpromise(addressRequest)
+    .then(function(response) {
+      console.log(response.statusCode);
+      if(response.statusCode === 200) return true;
+    })
+    .catch(function(error) {
+      console.log(error);
+      return false;
+    });
 }
 
 // Send the email to the relevant party
 function sendEmail(formData) {
-
   // The email data that will be sent
   sendmail({
     from: formData.email,
