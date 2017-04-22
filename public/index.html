@@ -33,21 +33,32 @@
 			<input required type="text" id="lastName" name="lastName">
 			<label for="lastName">Last Name<span class="red-text"> *</span></label>
 
-			<input required type="email" id="email" name="email">
+			<!-- HoneyPot ** Fake email inputs -->
+			<div class="input-field">
+			  Please leave this blank
+			  <input type="text" name="contact" value="" />
+			</div>
+			<div class="text-field">
+			  Please do not change this field
+			  <input type="text" name="email" value="your@email.com" />
+			</div>
+			<!-- *** -->
+
+			<input required type="email" id="email" name="realEmail">
 			<label for="email">Email<span class="red-text"> *</span></label>
 
 			<input required type="date" id="dateOfBirth" name="dateOfBirth">
 			<label for="dateOfBirth">Date of Birth<span class="red-text"> *</span></label>
 
-	   	<div class="input-field col s12">
-		    <select required id="gender" name="gender">
-		    	<option value="" disabled selected>Select Gender<span class="red-text"> *</span></option>
-		      <option class="non" value="male">Male</option>
-		      <option class="non" value="female">Female</option>
-		      <option value="noAnswer">prefer not to say</option>
-		      <option class="editable" value="other">Other</option>
-		    </select>
-		    <input id="gender" class="editOption" value="Please specify" style="display:none;"></input>		    
+		   	<div class="input-field col s12">
+			    <select required id="gender" name="gender">
+			    	<option value="" disabled selected>Select Gender<span class="red-text"> *</span></option>
+			      <option class="non" value="male">Male</option>
+			      <option class="non" value="female">Female</option>
+			      <option value="noAnswer">prefer not to say</option>
+			      <option class="editable" value="other">Other</option>
+			    </select>
+			    <input id="gender" class="editOption" value="Please specify" style="display:none;"></input>		    
 			</div>
 
 			<input required type="text" id="address" name="address">
@@ -77,9 +88,9 @@
 			<input required type="text" id="hospitalAttendedsPostCode" name="hospitalAttendedsPostCode">
 			<label for="hospitalAttendedsPostCode">Hospital Attended's Postcode<span class="red-text"> *</span></label>
 
-			<p class="grey-text">(if none, enter n/a)</p>
 			<textarea required type="text" name="specialRequirements"></textarea>
 			<label for="specialRequirements">Special Requirements<span class="red-text"> *</span></label>
+			<p id="helpText">*If none, enter 'None'</p>
 
 			<input type="text" id="socialWorker" name="socialWorker">
 			<label for="socialWorker">Social Worker: </label>
