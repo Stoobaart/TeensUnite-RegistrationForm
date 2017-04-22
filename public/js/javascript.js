@@ -6,7 +6,14 @@ function validateForm() {
   // }
 }
 
+// form option tooltips initialisation  
+$(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
+
 $(document).ready(function() {
+  $('select').material_select();
+
   var max_fields      = 3; //maximum input boxes allowed
   var wrapper         = $(".hospitalAttendedsPostCodeArea"); //Fields wrapper
   var add_button      = $(".AddHospitalAttended"); //Add button ID
@@ -23,5 +30,30 @@ $(document).ready(function() {
   $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
     e.preventDefault(); $(this).parent('div').remove(); x--;
   });
+
+
+
+  var initialText = "Please specify";
+  $('.editOption').val(initialText);
+
+  $('#gender').change(function(){
+  var selected = $('option:selected', this).attr('class');
+  var optionText = $('.editable').text();
+
+  if(selected == "editable"){
+    $('.editOption').show();
+
+    
+    $('.editOption').keyup(function(){
+        var editText = $('.editOption').val();
+        $('.editable').val(editText);
+        $('.editable').html(editText);
+    });
+
+  }else{
+    $('.editOption').hide();
+  }
+  });
+
 
 });
