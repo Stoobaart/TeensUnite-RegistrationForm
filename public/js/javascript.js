@@ -6,6 +6,11 @@ function validateForm() {
   // }
 }
 
+// form option tooltips initialisation  
+$(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
+
 $(document).ready(function() {
   var max_fields      = 3; //maximum input boxes allowed
   var wrapper         = $(".hospitalAttendedsPostCodeArea"); //Fields wrapper

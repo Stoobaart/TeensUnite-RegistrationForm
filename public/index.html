@@ -11,60 +11,63 @@
 </head>
 <body>
 	<section class="formContainer">
+	<p> Fields marked with a <span class="red-text">*</span> are required</p>
 		<form name="registrationForm" action="/validate" method="post" onsubmit="return validateForm()">
+        
+			<label for="firstName">First Name<span class="red-text">*</span></label>
+			<input required type="text" id="firstName" name="firstName" class="tooltipped" data-position="right" data-delay="50" data-tooltip="I am tooltip">		
 
-			<label for="firstName">First Name: </label>
-			<input type="text" id="firstName" name="firstName">		
+			<label for="lastName">Last Name<span class="red-text"> *</span></label>
+			<input required type="text" name="lastName">
 
-			<label for="lastName">Last Name: </label>
-			<input type="text" name="lastName">
-			<label for="email">Email: </label>
-			<input type="email" name="email">
+			<label for="email">Email<span class="red-text"> *</span></label>
+			<input required type="email" name="email">
 
-			<label for="dateOfBirth">Date of Birth: </label>
-			<input type="date" name="dateOfBirth">
+			<label for="dateOfBirth">Date of Birth<span class="red-text"> *</span></label>
+			<input required type="date" name="dateOfBirth">
 
-			<label for="gender">Gender</label>
-			<select name="gender">
+			<label for="gender">Gender<span class="red-text"> *</span></label>
+			<select required name="gender">
 	  		<option value="male">Male</option>
 	  		<option value="female">Female</option>
+	  		<option value="female">Other</option>
+	  		<option value="female">Prefer not to say</option>
 	  	</select>
 
-	  	<label for="address">Address: </label>
-			<input type="text" name="address">
+	  	<label for="address">Address<span class="red-text"> *</span></label>
+			<input required type="text" name="address">
 
-			<label for="postCode">Post Code: </label>
-			<input type="text" name="postCode">
+			<label for="postCode">Post Code<span class="red-text"> *</span></label>
+			<input required type="text" name="postCode">
 
-			<label for="homeTel">Home Telephone: </label>
+			<label for="homeTel">Home Telephone</label>
 			<input type="number" name="homeTel">
 
-			<label for="mobileTel">Mobile Telephone: </label>
-			<input type="text" name="mobileTel" pattern="^(?:\W*\d){11}\W*$" title="Please enter a valid UK mobile number.">
+			<label for="mobileTel">Mobile Telephone<span class="red-text"> *</span></label>
+			<input required type="text" name="mobileTel" pattern="^(?:\W*\d){11}\W*$" title="Please enter a valid UK mobile number.">
 
 			<label for="parentCarerName">Parent/Carer Name: </label>
 			<input type="text" name="parentCarerName" pattern="^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$" title="Name entered in an incorrect format.">
 
 			<label for="parentCarerTel">Parent/Carer Telephone: </label>
-			<input type="number" name="parentCarerTel">
+			<input type="number" name="parentCarerTel pattern="^(?:\W*\d){11}\W*$" title="Please enter a valid UK mobile number.">
 
 			<label for="parentCarerEmail">Parent/Carer Email: </label>
-			<input type="email" name="parentCarerEmail">
+			<input type="email" title="Please enter a valid email address." name="parentCarerEmail">
 
-			<label for="medicalCondition">Medical Condition: </label>
-			<input type="text" name="medicalCondition">
+			<label for="medicalCondition">Medical Condition(s)<span class="red-text"> *</span></label>
+			<input required type="text" name="medicalCondition">
 
 			<div class="hospitalAttendedsPostCodeArea">
-				<label for="hospitalAttendedsPostCode">Hospital Attended's Postcode: </label>
-				<input type="text" name="hospitalAttendedsPostCode">
+				<label for="hospitalAttendedsPostCode">Hospital Attended's Postcode<span class="red-text"> *</span></label>
+				<input required type="text" name="hospitalAttendedsPostCode">
 			</div>
 
 			<button class="AddHospitalAttended">Add Another Hospital</button>
 
-			<div></div>
-
-			<label for="specialRequirements">Special Requirements: </label>
-			<textarea type="text" name="specialRequirements"></textarea>
+			<label for="specialRequirements">Special Requirements<span class="red-text"> *</span></label>
+			<p class="grey-text">(if none, enter n/a)</p>
+			<textarea required type="text" name="specialRequirements"></textarea>
 
 			<label for="socialWorker">Social Worker: </label>
 			<input type="text" name="socialWorker">
@@ -75,8 +78,8 @@
 			<label for="interests">Interests: </label>
 			<textarea type="text" name="interests"></textarea>
 
-			<label for="photoRelease">Photo Release?: </label>
-			<textarea type="text" name="photoRelease"></textarea>
+			<label for="photoRelease">Photo Release?<span class="red-text"> *</span></label>
+			<textarea required type="text" name="photoRelease"></textarea>
 
 			<input type="submit" name="Submit" value="Submit">
 		</form>
