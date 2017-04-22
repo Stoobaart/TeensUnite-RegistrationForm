@@ -12,29 +12,17 @@
 <body>
 	<section class="formContainer">
 		<form name="registrationForm" action="/validate" method="post" onsubmit="return validateForm()">
-		<!--  -->
+
 			<label for="firstName">First Name: </label>
 			<input type="text" id="firstName" name="firstName">		
 
 			<label for="lastName">Last Name: </label>
 			<input type="text" name="lastName">
-
 			<label for="email">Email: </label>
-			<input type="text" name="email">
+			<input type="email" name="email">
 
 			<label for="dateOfBirth">Date of Birth: </label>
-			<input type="text" name="dateOfBirth">
-
-<!-- 			<div class="input-field col s12">
-				<select name="gender">
-		      <option value="" disabled selected>Select Gender</option>
-		      <option value="male">Male</option>
-		      <option value="female">Female</option>
-		      <option value="other" onclick="otherGender()">Other</option>
-		      <option value="noAnswer">prefer not to say</option>
-		    </select>
-		    <label for="gender">Gender</label>
-	    </div> -->
+			<input type="date" name="dateOfBirth">
 
 	   	<div class="input-field col s12">
 		    <select id="gender" name="gender">
@@ -43,16 +31,13 @@
 		      <option class="non" value="female">Female</option>
 		      <option value="noAnswer">prefer not to say</option>
 		      <option class="editable" value="other">Other</option>
-		      
 		    </select>
 		    <label for="gender">Gender</label>
-		    <input class="editOption" value="Please specify" style="display:none;"></input>
-		    
+		    <input class="editOption" value="Please specify" style="display:none;"></input>		    
 			</div>
 
-	    <div></div>
 
-	    <label for="address">Address: </label>
+	  	<label for="address">Address: </label>
 			<input type="text" name="address">
 
 			<label for="postCode">Post Code: </label>
@@ -62,16 +47,16 @@
 			<input type="number" name="homeTel">
 
 			<label for="mobileTel">Mobile Telephone: </label>
-			<input type="number" name="mobileTel" pattern="^(?:\W*\d){11}\W*$">
+			<input type="text" name="mobileTel" pattern="^(?:\W*\d){11}\W*$" title="Please enter a valid UK mobile number.">
 
 			<label for="parentCarerName">Parent/Carer Name: </label>
-			<input type="text" name="parentCarerName" pattern="^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$">
+			<input type="text" name="parentCarerName" pattern="^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$" title="Name entered in an incorrect format.">
 
 			<label for="parentCarerTel">Parent/Carer Telephone: </label>
 			<input type="number" name="parentCarerTel">
 
 			<label for="parentCarerEmail">Parent/Carer Email: </label>
-			<input type="text" name="parentCarerEmail">
+			<input type="email" name="parentCarerEmail">
 
 			<label for="medicalCondition">Medical Condition: </label>
 			<input type="text" name="medicalCondition">
@@ -81,7 +66,7 @@
 
 
 			<label for="specialRequirements">Special Requirements: </label>
-			<input type="text" name="specialRequirements">
+			<textarea type="text" name="specialRequirements"></textarea>
 
 			<label for="socialWorker">Social Worker: </label>
 			<input type="text" name="socialWorker">
@@ -96,9 +81,7 @@
 			<textarea type="text" name="photoRelease"></textarea>
 
 			<input type="submit" name="Submit" value="Submit">
-
-
 		</form>
-	</section>
+	</section> <!-- form container END-->
 </body>
 </html>
